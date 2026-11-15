@@ -1,0 +1,582 @@
+/* ============================================================
+   TANZIMUL ISLAM — tanzimulislam.com
+   Dark cinematic brutalist-premium. Mobile-first.
+   ============================================================ */
+:root{
+  --bg:#04070d;
+  --bg2:#070d18;
+  --panel:#0a1220;
+  --panel2:#0d1626;
+  --ink:#f5f7fb;
+  --muted:#93a0b8;
+  --dim:#5d6b84;
+  --gold:#e2a93d;
+  --gold-hi:#f5c86b;
+  --gold-dim:rgba(226,169,61,.14);
+  --blue:#3d7bff;
+  --line:rgba(148,170,200,.14);
+  --line-strong:rgba(148,170,200,.28);
+  --radius:14px;
+  --font-display:'Anton',Impact,sans-serif;
+  --font-body:'Inter',system-ui,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+section[id],footer[id]{scroll-margin-top:84px}
+a:focus-visible,button:focus-visible,summary:focus-visible,.video-frame:focus-visible,[tabindex]:focus-visible{
+  outline:2px solid var(--gold);outline-offset:3px;border-radius:4px;
+}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--font-body);
+  font-size:16px;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+::selection{background:var(--gold);color:#04070d}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+.container{width:min(1140px,92%);margin:0 auto}
+.container.narrow{width:min(760px,92%)}
+
+/* ---------- Typography ---------- */
+.display{
+  font-family:var(--font-display);
+  font-size:clamp(3rem,9vw,6.2rem);
+  line-height:.98;letter-spacing:.01em;
+  text-transform:uppercase;font-weight:400;
+}
+.display-sm{font-size:clamp(2.2rem,6vw,4rem)}
+.h2{
+  font-family:var(--font-display);font-weight:400;
+  font-size:clamp(2rem,5.4vw,3.4rem);
+  line-height:1.02;text-transform:uppercase;letter-spacing:.01em;
+  margin:.6rem 0 1rem;
+}
+.gold{color:var(--gold)}
+.eyebrow{
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  margin-bottom:1.1rem;
+}
+.section-no{
+  font-family:var(--font-mono);font-size:.72rem;font-weight:700;
+  letter-spacing:.22em;color:var(--dim);text-transform:uppercase;
+  border-bottom:1px solid var(--line);padding-bottom:.8rem;margin-bottom:1.6rem;
+}
+.section-sub{color:var(--muted);font-size:1.06rem;max-width:44rem;margin:0 auto 2.6rem;text-align:center}
+.lede{color:var(--muted);font-size:1.08rem;max-width:36rem}
+.lede strong{color:var(--ink)}
+
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  font-family:var(--font-mono);font-weight:700;font-size:.82rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  padding:.95rem 1.7rem;border-radius:8px;border:1px solid transparent;
+  cursor:pointer;transition:transform .15s ease,box-shadow .15s ease,background .15s ease;
+  white-space:nowrap;
+}
+.btn:active{transform:translateY(1px)}
+.btn-gold{background:linear-gradient(180deg,var(--gold-hi),var(--gold));color:#0a0a0a;box-shadow:0 8px 28px rgba(226,169,61,.28)}
+.btn-gold:hover{box-shadow:0 10px 34px rgba(226,169,61,.45);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-strong);color:var(--ink);background:rgba(255,255,255,.02)}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold-hi)}
+.btn-lg{padding:1.1rem 2.1rem;font-size:.9rem}
+.btn-sm{padding:.65rem 1.1rem;font-size:.72rem}
+.btn-block{width:100%}
+
+/* ---------- Nav ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:100;transition:background .25s ease,border-color .25s ease;border-bottom:1px solid transparent}
+.nav.scrolled{background:rgba(4,7,13,.88);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
+.nav-inner{width:min(1240px,94%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.site-logo{display:inline-flex;align-items:center;line-height:0;flex:none}
+.site-logo img{display:block;height:2.25rem;width:auto;max-width:100%}
+.site-logo--footer img{height:2.5rem}
+.nav-links{display:flex;gap:2rem}
+.nav-links a{font-family:var(--font-mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .15s}
+.nav-links a:hover{color:var(--gold-hi)}
+.nav-cta{display:flex;align-items:center;gap:1rem}
+.nav-toggle{display:none;background:none;border:0;cursor:pointer;flex-direction:column;gap:5px;padding:.5rem}
+.nav-toggle span{width:24px;height:2px;background:var(--ink);display:block;transition:.2s}
+.nav-mobile{display:none;flex-direction:column;gap:.4rem;padding:1rem 4% 1.4rem;background:rgba(4,7,13,.97);border-bottom:1px solid var(--line)}
+.nav-mobile a:not(.btn){font-family:var(--font-mono);font-size:.85rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);padding:.7rem 0;border-bottom:1px solid var(--line)}
+.nav-mobile.open{display:flex}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:9.5rem 0 4.5rem;overflow:hidden}
+.hero-bg{
+  position:absolute;inset:0;pointer-events:none;
+  background:
+    radial-gradient(900px 480px at 78% 30%,rgba(61,123,255,.10),transparent 60%),
+    radial-gradient(700px 420px at 12% 78%,rgba(226,169,61,.07),transparent 60%),
+    linear-gradient(180deg,#060b15 0%,#04070d 70%);
+}
+.hero-bg::after{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(148,170,200,.05) 1px,transparent 1px),linear-gradient(90deg,rgba(148,170,200,.05) 1px,transparent 1px);
+  background-size:56px 56px;
+  mask-image:radial-gradient(ellipse 90% 70% at 50% 30%,#000 30%,transparent 75%);
+}
+.hero-grid{position:relative;display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero-ctas{display:flex;gap:1rem;margin:2rem 0 1rem;flex-wrap:wrap}
+.micro-trust{font-family:var(--font-mono);font-size:.74rem;color:var(--dim);letter-spacing:.04em}
+.cred-strip{
+  display:flex;gap:1.6rem;flex-wrap:wrap;margin-top:2.4rem;
+  padding-top:1.6rem;border-top:1px solid var(--line);
+}
+.cred-strip div{display:flex;flex-direction:column;gap:.15rem}
+.cred-strip dt{font-family:var(--font-display);font-size:1.35rem;letter-spacing:.03em;color:var(--ink)}
+.cred-strip dd{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:0}
+/* Credly links on the certification items: the anchor wraps the <dt>
+   (not the whole <div>), so the <div> stays the flex child and the
+   strip layout is untouched. Link keeps the existing styling — same
+   color, no underline — so the strip reads exactly as before. */
+.cred-strip a{display:block;color:inherit;text-decoration:none}
+.play-icon{color:var(--gold);font-size:1.1rem}
+.hero-portrait{position:relative;display:flex;flex-direction:column;align-items:center}
+.portrait-glow{
+  position:absolute;inset:8% -6% 0;pointer-events:none;
+  background:radial-gradient(ellipse 60% 55% at 50% 42%,rgba(226,169,61,.20),rgba(61,123,255,.10) 55%,transparent 72%);
+  filter:blur(10px);
+}
+.portrait-img{
+  position:relative;width:min(380px,80%);aspect-ratio:3/3.6;object-fit:cover;object-position:top center;
+  /* seamless cinematic blend into the dark hero */
+  -webkit-mask-image:linear-gradient(180deg,#000 62%,transparent 99%);
+  mask-image:linear-gradient(180deg,#000 62%,transparent 99%);
+  filter:drop-shadow(0 24px 60px rgba(0,0,0,.55)) saturate(1.04);
+}
+.portrait-caption{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.28em;color:var(--dim);margin-top:.9rem}
+.scroll-hint{
+  position:absolute;left:50%;bottom:1.1rem;transform:translateX(-50%);
+  color:var(--dim);font-size:1.2rem;animation:bob 2.2s ease-in-out infinite;
+}
+@keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* ---------- Ticker ---------- */
+.ticker{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#050a14;overflow:hidden;padding:.85rem 0}
+.ticker-track{display:flex;gap:2.2rem;width:max-content;animation:tick 26s linear infinite;font-family:var(--font-mono);font-size:.74rem;font-weight:700;letter-spacing:.24em;color:var(--dim);white-space:nowrap}
+.ticker-track i{color:var(--gold);font-style:normal}
+@keyframes tick{to{transform:translateX(-50%)}}
+
+/* ---------- Sections & cards ---------- */
+.section{padding:6.5rem 0}
+.section-alt{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.section .h2,.section .eyebrow{text-align:center}
+.section .section-no{text-align:left}
+.grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.card{
+  background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.8rem;transition:border-color .2s,transform .2s;
+}
+.card:hover{border-color:var(--line-strong);transform:translateY(-3px)}
+.card h3{font-size:1.12rem;font-weight:700;margin-bottom:.6rem;letter-spacing:.01em}
+.card p{color:var(--muted);font-size:.95rem}
+.pillar{position:relative}
+.pillar-no{font-family:var(--font-display);font-size:2.6rem;color:var(--gold);opacity:.9;line-height:1;margin-bottom:.8rem}
+
+/* ---------- Video placeholders ---------- */
+.video-card .video-frame{
+  position:relative;aspect-ratio:16/9;border-radius:10px;overflow:hidden;cursor:pointer;
+  background:
+    radial-gradient(120% 90% at 50% 0%,#101b30 0%,#05090f 62%),
+    #05090f;
+  border:1px solid var(--line-strong);
+  display:flex;align-items:center;justify-content:center;
+  transition:border-color .2s,box-shadow .2s;
+}
+.video-card .video-frame:hover,.video-card .video-frame:focus-visible{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 50px rgba(0,0,0,.5);outline:none}
+.video-frame::before{ /* letterbox bars for cinematic feel */
+  content:"";position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent 0 46%,rgba(0,0,0,.55) 46% 54%,transparent 54% 100%);
+  opacity:.35;pointer-events:none;
+}
+.video-scan{
+  position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(105deg,transparent 40%,rgba(226,169,61,.10) 50%,transparent 60%);
+  background-size:250% 100%;animation:scan 4.5s ease-in-out infinite;
+}
+@keyframes scan{0%{background-position:120% 0}55%,100%{background-position:-120% 0}}
+/* No text badges on videos: thumbnail + gold play button only. */
+.video-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;pointer-events:none}
+.video-frame.has-thumb::before{display:none}
+.video-frame.has-thumb .video-scan{display:none}
+.video-frame.has-thumb{background:#05090f}
+.video-play{
+  position:relative;z-index:2;width:76px;height:76px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:#0a0a0a;
+  background:linear-gradient(180deg,var(--gold-hi),var(--gold));
+  box-shadow:0 10px 34px rgba(226,169,61,.4);transition:transform .18s;
+}
+.video-frame:hover .video-play{transform:scale(1.08)}
+.video-card h3{margin:1.1rem 0 .35rem;font-size:1.02rem}
+
+/* ============ 03 PROOF — 4+2 hybrid grid (isolated) ============ */
+.proof-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+.proof-v .video-frame{aspect-ratio:9/16}
+.proof-v .video-frame::before{display:none} /* no letterbox bars on vertical */
+.proof-l{grid-column:span 2}
+.proof-grid .title-short{display:none}
+@media(max-width:900px){
+  .proof-grid{grid-template-columns:repeat(2,1fr)}
+  .proof-l{grid-column:span 2}
+}
+@media(max-width:760px){
+  /* Mobile staggered 2-1-2-1 grid, CSS-only reordering (DOM order unchanged,
+     so desktop and tablet grids are untouched). Visual order: Roofing,
+     Kitchen, Hardscaping, Bathroom, Solar, Basement. */
+  .proof-grid{grid-template-columns:1fr 1fr;gap:1rem}
+  .proof-grid > :nth-child(1){order:1}
+  .proof-grid > :nth-child(2){order:2}
+  .proof-grid > :nth-child(5){order:3;grid-column:span 2}
+  .proof-grid > :nth-child(3){order:4}
+  .proof-grid > :nth-child(4){order:5}
+  .proof-grid > :nth-child(6){order:6;grid-column:span 2}
+  .proof-v{width:auto;max-width:none;margin-inline:0}
+  .proof-l{grid-column:span 2}
+  /* Mobile short titles: full title hidden, short title shown. */
+  .proof-grid .title-full{display:none}
+  .proof-grid .title-short{display:inline}
+  /* Mobile description: clamped to 2 lines, click to toggle full text.
+     max-height transition fakes a smooth expansion; each card toggles
+     independently via the .expanded class in app.js. */
+  .proof-grid .video-card > p{display:-webkit-box;-webkit-line-clamp:2;line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;max-height:3.2em;transition:max-height .35s ease}
+  .proof-grid .video-card > p.expanded{display:block;-webkit-line-clamp:unset;line-clamp:unset;max-height:20em}
+}
+
+/* ---------- Offer ---------- */
+.offer-grid{align-items:stretch}
+.offer-card{display:flex;flex-direction:column}
+.offer-card .btn{margin-top:auto}
+.offer-tag{font-family:var(--font-mono);font-size:.66rem;font-weight:700;letter-spacing:.24em;color:var(--dim);margin-bottom:.7rem}
+.offer-primary{border:1px solid var(--gold);box-shadow:0 0 0 1px var(--gold),0 24px 70px rgba(226,169,61,.10);background:linear-gradient(180deg,#12101a,#0a0f1c)}
+.offer-primary .offer-tag{color:var(--gold-hi)}
+.price{font-family:var(--font-display);font-size:3rem;letter-spacing:.02em;margin:.4rem 0 1.1rem}
+.price span{font-family:var(--font-mono);font-size:.78rem;color:var(--dim);letter-spacing:.1em}
+.offer-list{list-style:none;margin-bottom:1.2rem;display:flex;flex-direction:column;gap:.65rem}
+.offer-list li{position:relative;padding-left:1.6rem;color:var(--muted);font-size:.95rem}
+.offer-list li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:700}
+.offer-note{font-size:.85rem;color:var(--dim);border-top:1px solid var(--line);padding-top:1rem;margin-bottom:1.4rem}
+.offer-note strong{color:var(--gold-hi)}
+
+/* ---------- Niches ---------- */
+.niche-stat{font-family:var(--font-display);font-size:2rem;color:var(--gold);margin:.5rem 0 .1rem}
+.niche-label{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:.8rem}
+.footnote{margin-top:2rem;text-align:center;color:var(--dim);font-size:.8rem;max-width:46rem;margin-left:auto;margin-right:auto}
+
+/* ---------- About ---------- */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
+.about-grid .h2,.about-grid .eyebrow{text-align:left}
+.cred-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.cred-list li{
+  display:flex;gap:1rem;align-items:flex-start;
+  background:linear-gradient(180deg,var(--panel2),var(--panel));
+  border:1px solid var(--line);border-radius:10px;padding:1.1rem 1.3rem;
+}
+.cred-check{
+  flex:none;width:30px;height:30px;border-radius:50%;
+  background:var(--gold-dim);border:1px solid var(--gold);color:var(--gold-hi);
+  display:flex;align-items:center;justify-content:center;font-weight:700;
+}
+.cred-list strong{display:block;font-size:.98rem}
+.cred-list span{color:var(--muted);font-size:.86rem}
+
+/* ---------- Steps ---------- */
+.step-no{font-family:var(--font-display);font-size:2.4rem;color:transparent;-webkit-text-stroke:1.5px var(--gold);margin-bottom:.7rem}
+
+/* ---------- FAQ ---------- */
+.faq{display:flex;flex-direction:column;gap:.8rem;margin-top:2.4rem}
+.faq-item{background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.faq-item summary{
+  cursor:pointer;list-style:none;padding:1.25rem 1.5rem;font-weight:600;font-size:1rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";font-family:var(--font-mono);color:var(--gold);font-size:1.4rem;flex:none;transition:transform .2s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item p{padding:0 1.5rem 1.4rem;color:var(--muted);font-size:.95rem}
+
+/* ---------- Pilot form ---------- */
+.pilot-section{background:radial-gradient(800px 400px at 50% 0%,rgba(226,169,61,.08),transparent 65%),var(--bg2);border-top:1px solid var(--line)}
+.pilot-form{background:var(--panel);border:1px solid var(--line-strong);border-radius:var(--radius);padding:2.2rem;margin-top:2.4rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.1rem}
+.pilot-form label{display:flex;flex-direction:column;gap:.5rem;font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.pilot-form input,.pilot-form select,.pilot-form textarea{
+  font-family:var(--font-body);font-size:.95rem;color:var(--ink);
+  background:#060b14;border:1px solid var(--line-strong);border-radius:8px;
+  padding:.95rem 1rem;width:100%;transition:border-color .15s;
+}
+.pilot-form input:focus,.pilot-form select:focus,.pilot-form textarea:focus{outline:none;border-color:var(--gold)}
+.pilot-form select{appearance:none}
+.form-full{margin-bottom:1.4rem}
+.opt{color:var(--dim);font-weight:400}
+.form-secure{text-align:center;font-size:.82rem;color:var(--dim);margin-top:1rem}
+.form-error{color:#ff7a7a;font-size:.85rem;margin-top:1rem;text-align:center;font-family:var(--font-body);text-transform:none;letter-spacing:0}
+.pilot-success{background:var(--panel);border:1px solid var(--gold);border-radius:var(--radius);padding:3rem 2.2rem;margin-top:2.4rem;text-align:center}
+.success-mark{width:64px;height:64px;margin:0 auto 1.2rem;border-radius:50%;background:#22c55e;border:1px solid #22c55e;color:#ffffff;font-size:1.8rem;display:flex;align-items:center;justify-content:center}
+.pilot-success h3{font-family:var(--font-display);font-weight:400;font-size:clamp(1.9rem,5vw,2.6rem);line-height:1.05;letter-spacing:.01em;margin-bottom:.8rem;text-transform:uppercase;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.pilot-success p{color:var(--muted);max-width:30rem;margin:0 auto 1.6rem}
+
+/* ---------- Final CTA & footer ---------- */
+.final-cta{padding:7rem 0;text-align:center;background:linear-gradient(180deg,var(--bg) 0%,#0a0f1e 100%);border-top:1px solid var(--line)}
+.final-cta .hero-ctas{margin-top:2.4rem}
+.footer{border-top:1px solid var(--line);padding:3.5rem 0 2rem;background:#03060b}
+.footer-grid{display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.footer-brand{display:flex;align-items:center}
+.footer-contact{text-align:right}
+.footer-social{display:flex;gap:1rem;justify-content:flex-end;margin-top:.9rem}
+.footer-social a,.footer-social-pending{display:inline-flex;line-height:0}
+.footer-social img{display:block;height:1.5rem;width:auto}
+.footer-social a:hover{opacity:.7}
+/* Optical balance: Instagram fills its 24px box; the other three do not.
+   Measured at 480px render: Instagram 480px tall, LinkedIn/Facebook 360px,
+   X 390px. Scale the smaller three so their visual height matches Instagram. */
+.footer-social .social-icon--linkedin{transform:scale(1.33)}
+.footer-social .social-icon--facebook{transform:scale(1.33)}
+.footer-social .social-icon--x{transform:scale(1.23)}
+/* ---------- LAST WORD ---------- */
+.final-cta .last-word{font-weight:400;letter-spacing:.03em;line-height:1.05}
+/* Negative-space slice: the word itself is split into two clipped halves
+   with a diagonal transparent gap between them. No colored line is painted,
+   so the section background shows through the cut at any viewport size. */
+.slice-ads{position:relative;display:inline-block;white-space:nowrap;color:transparent}
+.slice-ads::before,.slice-ads::after{content:attr(data-text);position:absolute;inset:0;color:var(--ink);pointer-events:none}
+.slice-ads::before{clip-path:polygon(0 0,100% 0,100% 34%,0 46%);transform:translate(-.015em,-.02em)}
+.slice-ads::after{clip-path:polygon(0 58%,100% 46%,100% 100%,0 100%);transform:translate(.015em,.02em)}
+.footer-label{font-family:var(--font-mono);font-size:.68rem;font-weight:700;letter-spacing:.24em;color:var(--dim);margin-bottom:.6rem}
+.footer-email{font-weight:600;color:var(--gold-hi);border-bottom:1px solid var(--gold-dim)}
+.footer-email:hover{border-bottom-color:var(--gold)}
+.copy-btn{background:none;border:1px solid var(--line-strong);color:var(--muted);border-radius:6px;padding:.15rem .55rem;cursor:pointer;margin-left:.5rem;font-size:.85rem}
+.copy-btn:hover{color:var(--gold-hi);border-color:var(--gold)}
+.copy-btn.copied{color:var(--gold-hi);border-color:var(--gold)}
+.footer-note{color:var(--dim);font-size:.85rem;margin-top:.7rem}
+.footer-base{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:1.6rem;color:var(--dim);font-size:.8rem}
+.footer-links a{color:var(--dim)}
+.footer-links a:hover{color:var(--gold-hi)}
+
+/* ---------- Sticky mobile CTA ---------- */
+.sticky-cta{
+  display:none;position:fixed;left:0;right:0;bottom:0;z-index:90;
+  transform:translateY(110%);transition:transform .3s ease;
+  background:rgba(4,7,13,.94);backdrop-filter:blur(12px);
+  border-top:1px solid var(--gold-dim);
+  padding:.7rem 4% calc(.7rem + env(safe-area-inset-bottom));
+}
+.sticky-cta.show{transform:none}
+.sticky-cta-inner{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.sticky-cta-text{display:flex;flex-direction:column;line-height:1.3}
+.sticky-cta-text strong{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.04em}
+.sticky-cta-text span{font-family:var(--font-mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+
+/* ---------- Modal ---------- */
+.modal{position:fixed;inset:0;z-index:200;background:rgba(2,4,8,.85);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.2rem}
+.modal[hidden]{display:none}
+.modal-box{position:relative;width:min(860px,100%);background:var(--panel2);border:1px solid var(--line-strong);border-radius:var(--radius);overflow:hidden}
+.modal-close{position:absolute;top:.7rem;right:.7rem;z-index:2;background:rgba(4,7,13,.7);border:1px solid var(--line-strong);color:var(--ink);width:38px;height:38px;border-radius:50%;cursor:pointer;font-size:1rem}
+.modal-close:hover{border-color:var(--gold);color:var(--gold-hi)}
+.modal-frame{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;background:#04070d;text-align:center;padding:2rem}
+.modal-box.modal-vertical{width:min(420px,50vh,92vw)}
+.modal-frame.modal-vertical{aspect-ratio:9/16;max-height:90vh}
+.modal-frame iframe{width:100%;height:100%;border:0}
+/* Wistia cover-fill: zero black borders, vertical AND landscape.
+   The modal frame already matches the video aspect (9:16 vertical,
+   16:9 landscape), so a 100% x 100% iframe is edge-to-edge in the
+   normal case. The .modal-video wrap is inset -1% (102% x 102%) as
+   the cover-crop safeguard: it crops ~1% at the edges — invisible
+   on a concept ad — instead of ever showing a pillarbox/letterbox
+   sliver from rounding or player chrome. object-fit:cover and
+   object-position:center are kept on the iframe itself per the
+   brief. Padding is removed only while a video is playing, so the
+   placeholder text keeps its own spacing. */
+.modal-frame{position:relative}
+.modal-frame.modal-video{padding:0;background:#000;overflow:hidden}
+.modal-frame.modal-video .modal-wistia-wrap{position:absolute;inset:-1%;width:102%;height:102%}
+.modal-frame.modal-video .modal-wistia-wrap iframe{width:100%;height:100%;object-fit:cover;object-position:center;display:block;border:0;background:#000}
+.modal-soon{font-family:var(--font-display);font-size:clamp(1.4rem,4vw,2.2rem);letter-spacing:.04em}
+.modal-hint{color:var(--dim);font-size:.85rem}
+.modal-hint code{color:var(--gold-hi);font-family:var(--font-mono);font-size:.8rem}
+/* Desktop landscape modal size (2026-11-10): 1100px sweet spot.
+   Landscape ONLY — the :not(.modal-vertical) selector leaves the
+   vertical Kitchen modal completely untouched. No min()/calc()
+   formulas: width 100% with a hard max-width of 1100px, giving a
+   neat floating 1100x619 box, flex-centered by .modal with plenty
+   of dark backdrop visible around all sides. Applies to video
+   modals AND placeholders, so the container size stays consistent.
+   Tablet/mobile untouched. */
+@media (min-width:992px){
+  .modal-box:not(.modal-vertical){width:100%;max-width:1100px}
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .ticker-track,.video-scan,.scroll-hint{animation:none}
+  html{scroll-behavior:auto}
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .hero-grid{grid-template-columns:1fr;gap:2.4rem}
+  .hero{padding-top:7.5rem}
+  .hero-portrait{order:2}
+  .portrait-img{width:min(320px,74%)}
+  .grid-4{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:2.4rem}
+}
+@media (max-width:720px){
+  .sticky-cta{display:block}
+  .nav-links{display:none}
+  .nav-toggle{display:flex}
+  .nav-cta .btn{display:none}
+  .grid-2,.grid-3{grid-template-columns:1fr}
+  .section{padding:4.5rem 0}
+  .hero-ctas .btn{flex:1 1 100%}
+  .form-row{grid-template-columns:1fr}
+  .pilot-form{padding:1.5rem}
+  .cred-strip{gap:1.1rem}
+  .cred-strip dt{font-size:1.15rem}
+  .site-logo--header img{height:2rem}
+  .site-logo--footer img{height:2.25rem}
+  .final-cta .last-word{font-size:clamp(1.7rem,8.5vw,2.4rem);letter-spacing:.02em;line-height:1.12}
+  .footer-grid{flex-direction:column;align-items:center;text-align:center}
+  .footer-contact{text-align:center}
+  .footer-social{justify-content:center}
+  .footer-base{justify-content:center;text-align:center}
+  /* Niches sticky stack (mobile only): a grid item is trapped inside its own grid row, so position:sticky on .card.niche would do nothing while .grid-3 stays a grid. The niches grid becomes a block stack on mobile; cards then stick at top:100px (just below the ~64px fixed nav) and slide over each other. margin-bottom keeps the 1.2rem grid gap. */
+  #niches .grid-3{display:block}
+  #niches .card.niche{position:sticky;top:100px;margin-bottom:1.2rem}
+}
+@media (max-width:520px){
+  .grid-4{grid-template-columns:1fr}
+  .display{font-size:clamp(2.6rem,13vw,3.4rem)}
+}
+
+/* ============ HERO V2 — mobile-first teardown (isolated) ============ */
+.hero-v2{min-height:100svh;display:flex;align-items:center;padding:0}
+.hero-v2-inner{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:clamp(.55rem,1.6svh,.9rem);width:min(920px,92%);
+  padding-top:calc(58px + 2svh);padding-bottom:3svh}
+/* Trust flip bar — 6 verified credentials, pure CSS rotation */
+.trust-flip{display:inline-flex;align-items:center;gap:.6rem;margin:0;border:1px solid var(--line-strong);
+  background:rgba(255,255,255,.03);border-radius:999px;padding:.5rem 1.05rem;
+  font-family:var(--font-mono);font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.trust-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px var(--gold);flex:none}
+.flip-window{display:inline-block;overflow:hidden;height:1.5em;line-height:1.5em}
+.flip-track{display:flex;flex-direction:column;animation:trustflip 18s ease-in-out infinite}
+.flip-track>span{height:1.5em;line-height:1.5em;white-space:nowrap;color:var(--gold-hi)}
+@keyframes trustflip{
+  0%,14%{transform:translateY(0)}
+  17%,31%{transform:translateY(-1.5em)}
+  34%,48%{transform:translateY(-3em)}
+  51%,65%{transform:translateY(-4.5em)}
+  68%,82%{transform:translateY(-6em)}
+  85%,97%{transform:translateY(-7.5em)}
+  100%{transform:translateY(0)}
+}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* Headline — centered, fluid */
+.display-v2{font-size:clamp(2.3rem,11vw,5.2rem)}
+/* Hero VSL — full-width 16:9 */
+.hero-vsl{position:relative;width:100%;max-width:880px;aspect-ratio:16/9;border-radius:12px;overflow:hidden;
+  cursor:pointer;border:1px solid var(--line-strong);display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(120% 90% at 50% 0%,#101b30 0%,#05090f 62%),#05090f;
+  transition:border-color .2s,box-shadow .2s}
+.hero-vsl:hover,.hero-vsl:focus-visible{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold),0 18px 50px rgba(0,0,0,.5)}
+.hero-vsl .video-play{width:84px;height:84px;font-size:1.6rem}
+@media (max-width:720px){
+  .hero-v2-inner .btn-lg{width:100%;max-width:420px}
+  .display-v2{font-size:clamp(2.3rem,12.5vw,3.2rem)}
+}
+@media (prefers-reduced-motion:reduce){.flip-track{animation:none}}
+
+/* ============ HERO V3 — competitor-rhythm rebuild (isolated) ============ */
+.eyebrow-badge{margin:0;border:1px solid var(--line-strong);border-radius:999px;
+  padding:.55rem 1.25rem;background:rgba(255,255,255,.03);text-align:center;
+  font-size:.68rem;max-width:100%}
+/* Niche marquee inside hero — dim, slow, premium proof-whisper */
+.ticker-hero{border:0;background:transparent;padding:.9rem 0;width:100%;overflow:hidden}
+.ticker-hero .ticker-track{font-size:.66rem;letter-spacing:.24em;color:var(--dim);
+  animation-duration:44s;gap:2.6rem}
+.ticker-hero .ticker-track i{color:var(--gold);opacity:.65;font-size:.55rem;font-style:normal}
+/* Big trust row — V1 design, centered */
+.cred-strip-center{justify-content:center;text-align:center;margin-top:1svh;
+  padding-top:1.5rem;border-top:1px solid var(--line);width:100%}
+.cred-strip-center>div{align-items:center}
+/* Competitor-grade whitespace */
+.hero-v2-inner{gap:clamp(.8rem,2.2svh,1.25rem)}
+
+/* ============ HERO V4 — trust pill (isolated) ============ */
+.trust-pill{display:inline-flex;align-items:center;gap:.65rem;margin:0;
+  border:1px solid var(--line-strong);border-radius:999px;
+  background:rgba(255,255,255,.04);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  padding:.6rem 1.25rem;box-shadow:0 8px 30px rgba(0,0,0,.35);
+  font-family:var(--font-mono);font-size:.7rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--ink)}
+.trust-pill .trust-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 12px var(--gold);flex:none;animation:trustpulse 2.4s ease-in-out infinite}
+@keyframes trustpulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.55;transform:scale(.8)}}
+.trust-pill-window{display:inline-block;overflow:hidden;height:1.5em;line-height:1.5em}
+.trust-pill-track{display:flex;flex-direction:column;animation:trustpillspin 18s ease-in-out infinite}
+.trust-pill-track>span{height:1.5em;line-height:1.5em;white-space:nowrap;color:var(--gold-hi)}
+@keyframes trustpillspin{
+  0%,14%{transform:translateY(0)}
+  17%,31%{transform:translateY(-1.5em)}
+  34%,48%{transform:translateY(-3em)}
+  51%,65%{transform:translateY(-4.5em)}
+  68%,82%{transform:translateY(-6em)}
+  85%,97%{transform:translateY(-7.5em)}
+  100%{transform:translateY(0)}
+}
+@media (prefers-reduced-motion:reduce){
+  .trust-pill-track,.trust-pill .trust-dot{animation:none}
+}
+
+/* ============ PROBLEM V2 — error-state accent (isolated) ============ */
+.problem-card{position:relative;overflow:hidden}
+.problem-card::before{content:"";position:absolute;top:0;left:8%;right:8%;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(229,72,77,.6),transparent)}
+.problem-card:hover,.problem-card:active{border-color:rgba(229,72,77,.35);
+  box-shadow:0 0 44px rgba(229,72,77,.09)}
+.problem-bridge{text-align:center;font-family:var(--font-display);
+  font-size:clamp(1.3rem,3.4vw,1.9rem);letter-spacing:.03em;text-transform:uppercase;
+  margin-top:2.8rem;color:var(--ink)}
+.problem-bridge::after{content:"";display:block;width:64px;height:2px;margin:1.1rem auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+
+/* ============ WEAPON V2 — 2x2 grid + rich visual stages (isolated) ============ */
+.weapon-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.15rem;margin-top:2.5rem}
+@media(max-width:760px){.weapon-grid{grid-template-columns:1fr}}
+.weapon-card{padding:1.45rem;transition:border-color .25s ease,box-shadow .25s ease,transform .2s ease;
+  box-shadow:0 0 22px rgba(226,169,61,.05)}
+.weapon-card:hover,.weapon-card:active,.weapon-card:focus-visible{border-color:rgba(226,169,61,.45);
+  box-shadow:0 0 44px rgba(226,169,61,.14)}
+.weapon-visual{border-radius:12px;overflow:hidden;margin-bottom:1.15rem;aspect-ratio:2/1;
+  border:1px solid var(--line);position:relative;background:#070d18}
+.weapon-visual svg{display:block;width:100%;height:100%}
+.weapon-card .w-beam{transition:opacity .5s ease}
+.weapon-card:hover .w-beam{opacity:.6}
+.w-particle{animation:wfloat 7s ease-in-out infinite}
+@keyframes wfloat{0%,100%{transform:translateY(0);opacity:.45}50%{transform:translateY(-9px);opacity:.9}}
+.w-eye{transform-box:fill-box;transform-origin:center;animation:wblink 2.4s ease-in-out infinite}
+@keyframes wblink{0%{transform:scaleY(1)}3%{transform:scaleY(.07)}6%{transform:scaleY(1)}10%{transform:scaleY(.07)}13%{transform:scaleY(1)}100%{transform:scaleY(1)}}
+.w-focus{animation:wfocus 2s ease-in-out infinite}
+@keyframes wfocus{0%,47%{filter:blur(3px);opacity:.65}50%,100%{filter:blur(0);opacity:1}}
+.w-brackets{animation:wbrackets 2s ease-in-out infinite}
+@keyframes wbrackets{0%,47%{opacity:.5}50%,100%{opacity:.95}}
+.w-brain{transform-box:fill-box;transform-origin:center;animation:wbreath 3.2s ease-in-out infinite}
+@keyframes wbreath{0%,100%{transform:scale(1)}50%{transform:scale(1.09)}}
+.w-phone{transform-box:fill-box;transform-origin:center;animation:wbuzz .18s linear infinite}
+@keyframes wbuzz{0%{transform:translate(0,0) rotate(0deg)}25%{transform:translate(1.6px,-1px) rotate(2.2deg)}50%{transform:translate(-1.6px,1px) rotate(-2.2deg)}75%{transform:translate(1px,1px) rotate(1.4deg)}100%{transform:translate(-1px,-1px) rotate(-1.4deg)}}
+.w-ringwaves path{animation:wwave 1.2s ease-in-out infinite}
+.w-ringwaves path:last-child{animation-delay:.4s}
+@keyframes wwave{0%,100%{opacity:.12}50%{opacity:.8}}
+@media (prefers-reduced-motion:reduce){.w-particle,.w-eye,.w-focus,.w-brackets,.w-brain,.w-phone,.w-ringwaves path{animation:none}}
