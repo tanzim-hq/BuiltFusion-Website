@@ -93,8 +93,8 @@ a{color:inherit;text-decoration:none}
 .nav.scrolled{background:rgba(4,7,13,.88);backdrop-filter:blur(14px);border-bottom-color:var(--line)}
 .nav-inner{width:min(1240px,94%);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
 .site-logo{display:inline-flex;align-items:center;line-height:0;flex:none}
-.site-logo img{display:block;height:2.25rem;width:auto;max-width:100%}
-.site-logo--footer img{height:2.5rem}
+.site-logo img{display:block;height:2rem;width:auto;max-width:100%}
+.site-logo--footer img{height:2.25rem}
 .nav-links{display:flex;gap:2rem}
 .nav-links a{font-family:var(--font-mono);font-size:.74rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);transition:color .15s}
 .nav-links a:hover{color:var(--gold-hi)}
@@ -443,8 +443,8 @@ a{color:inherit;text-decoration:none}
   .pilot-form{padding:1.5rem}
   .cred-strip{gap:1.1rem}
   .cred-strip dt{font-size:1.15rem}
-  .site-logo--header img{height:2rem}
-  .site-logo--footer img{height:2.25rem}
+  .site-logo--header img{height:1.5rem}
+  .site-logo--footer img{height:1.75rem}
   .final-cta .last-word{font-size:clamp(1.7rem,8.5vw,2.4rem);letter-spacing:.02em;line-height:1.12}
   .footer-grid{flex-direction:column;align-items:center;text-align:center}
   .footer-contact{text-align:center}
